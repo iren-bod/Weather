@@ -1,13 +1,25 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family: sans-serif;
-  background-color: mediumslateblue;
   padding: 0;
   margin: 0;
 }
+
+.weather {
+  font-family: sans-serif;
+  background-color: mediumslateblue;
+  margin: 50px auto;
+  width: 800px;
+}
+
 form {
   text-align: center;
 }
-.weather-country {
+
+.weather-city {
   width: 50%;
   margin-top: 30px;
   padding: 15px;
@@ -21,7 +33,7 @@ form {
   cursor: pointer;
 }
 h1 {
-  margin-top: 30px;
+  margin-top: 20px;
   text-align: center;
   margin-bottom: 0px;
 }
@@ -30,60 +42,48 @@ h3 {
   margin: 0px;
   font-size: 25px;
 }
-img {
+.weather-img {
   display: block;
   margin: 0 auto;
-}
-.weather-sunny {
   width: 120px;
 }
-.temperature {
+.weather-temperature {
   display: flex;
   justify-content: space-around;
 }
-.temperature-name {
+.temperature-value {
   text-align: center;
   font-size: 22px;
 }
-.temperature-value-min {
+.temperature-min {
   text-align: center;
 }
-.temperature-value-max {
+.temperature-max {
   text-align: center;
-}
-h2 {
-  text-align: center;
-  margin-top: 30px;
 }
 hr {
   width: 95%;
-  border: 2px solid grey;
-}
-
-.week-weather {
-  flex-wrap: wrap;
-  display: flex;
-  justify-content: space-around;
-}
-.day {
-  border: 3px solid grey;
-  text-align: center;
-  border-radius: 100px;
-  width: 300px;
-  height: 350px;
-  margin-top: 50px;
-  cursor: pointer;
-  transition: 1s;
-}
-.day:hover {
-  transform: scale(1.1);
-}
-.name-day {
-  font-size: 22px;
+  border: 0.5px solid gray;
 }
 .project-link {
-  margin: 30px 0px 20px 0px;
+  margin-top: 20px;
+  padding-bottom: 20px;
+  text-align: center;
 }
 a {
   text-decoration: none;
+}
+ul {
+  padding-left: 70px;
+}
+
+li {
+  font-size: 18px;
+  list-style: none;
+  padding-top: 15px;
+}
+.weather-description {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 18px;
 }
