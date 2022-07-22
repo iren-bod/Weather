@@ -29,16 +29,22 @@ function showWeather(response) {
   let minTemperature = Math.round(response.data.main.temp_min);
   let maxTemperature = Math.round(response.data.main.temp_max);
 
-  let minTemperatureValue = document.querySelector("p.temperature-min");
-  minTemperatureValue.innerHTML = `${minTemperature}°C`;
+  let minTemperatureValue = document.querySelector("#min");
+  minTemperatureValue.innerHTML = `${minTemperature}`;
 
-  let maxTemperatureValue = document.querySelector("p.temperature-max");
-  maxTemperatureValue.innerHTML = `${maxTemperature}°C`;
+  let maxTemperatureValue = document.querySelector("#max");
+  maxTemperatureValue.innerHTML = `${maxTemperature}`;
 
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
   document.querySelector("#wind").innerHTML = Math.round(
     response.data.wind.speed
   );
+  document
+    .querySelector("#icon")
+    .setAttribute(
+      "src",
+      `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+    );
   document.querySelector("p.weather-description").innerHTML =
     response.data.weather[0].main;
 }

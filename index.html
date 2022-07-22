@@ -25,18 +25,20 @@
       <h1>city</h1>
       <h3></h3>
 
-      <img src="img/sun.png" alt="Sun" class="weather-img" />
+      <img src="#" alt="Sun" class="weather-img" id="icon" />
 
       <div class="weather-temperature">
-        <div class="main">
-          <p class="temperature-value"><strong>Min</strong></p>
-          <p class="temperature-min">+22°C</p>
-        </div>
-        <div class="main">
-          <p class="temperature-value"><strong>Max</strong></p>
-          <p class="temperature-max">+33°C</p>
-        </div>
+        <ul class="main">
+          <li class="temperature-value">Min</li>
+          <li class="temperature-min"><span id="min"></span> °C | °F</li>
+        </ul>
+
+        <ul class="main">
+          <li class="temperature-value">Max</li>
+          <li class="temperature-min"><span id="max"></span> °C | °F</li>
+        </ul>
       </div>
+
       <div class="weather-wind-speed">
         <ul>
           <li><strong>Humidity: </strong><span id="humidity"></span> %</li>

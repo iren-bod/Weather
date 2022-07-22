@@ -51,16 +51,7 @@ h3 {
   display: flex;
   justify-content: space-around;
 }
-.temperature-value {
-  text-align: center;
-  font-size: 22px;
-}
-.temperature-min {
-  text-align: center;
-}
-.temperature-max {
-  text-align: center;
-}
+
 hr {
   width: 95%;
   border: 0.5px solid gray;
@@ -76,11 +67,19 @@ a {
 ul {
   padding-left: 70px;
 }
+ul.main {
+  padding: 0px;
+}
 
 li {
   font-size: 18px;
   list-style: none;
   padding-top: 15px;
+}
+li.temperature-value {
+  text-align: center;
+  font-size: 22px;
+  font-weight: bold;
 }
 .weather-description {
   margin-top: 20px;
