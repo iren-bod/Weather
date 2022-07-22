@@ -26,14 +26,12 @@ function formatDate(date) {
 function showWeather(response) {
   document.querySelector("h1").innerHTML = response.data.name;
 
-  let minTemperature = Math.round(response.data.main.temp_min);
-  let maxTemperature = Math.round(response.data.main.temp_max);
+  celsiusTemperature = response.data.main.temp;
+
+  let minTemperature = Math.round(celsiusTemperature);
 
   let minTemperatureValue = document.querySelector("#min");
   minTemperatureValue.innerHTML = `${minTemperature}`;
-
-  let maxTemperatureValue = document.querySelector("#max");
-  maxTemperatureValue.innerHTML = `${maxTemperature}`;
 
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
   document.querySelector("#wind").innerHTML = Math.round(
@@ -67,5 +65,30 @@ dateElement.innerHTML = formatDate(currentTime);
 
 let searchForm = document.querySelector("form");
 searchForm.addEventListener("submit", handleSubmit);
+
+let fahrenheitLink = document.querySelector("#fahrenheit");
+let celsiusLink = document.querySelector("#celsius");
+
+let celsiusTemperature = null;
+
+function showFahrenheitTemperature(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#min");
+  fahrenheitLink.classList.add("active");
+  celsiusLink.classList.remove("active");
+  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
+  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
+}
+
+function showCelsiusTemperature(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#min");
+  celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+}
+
+fahrenheitLink.addEventListener("click", showFahrenheitTemperature);
+celsiusLink.addEventListener("click", showCelsiusTemperature);
 
 searchCity("Kyiv");
