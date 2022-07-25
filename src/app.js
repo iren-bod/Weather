@@ -1,4 +1,5 @@
-function formatDate(date) {
+function formatDate(timestamp) {
+  let date = new Date(timestamp);
   let hours = date.getHours();
   if (hours < 10) {
     hours = `0${hours}`;
@@ -8,7 +9,6 @@ function formatDate(date) {
     minutes = `0${minutes}`;
   }
 
-  let dayIndex = date.getDay();
   let days = [
     "Sunday",
     "Monday",
@@ -18,8 +18,7 @@ function formatDate(date) {
     "Friday",
     "Saturday",
   ];
-  let day = days[dayIndex];
-
+  let day = days[date.getDay()];
   return `${day} ${hours}:${minutes}`;
 }
 
@@ -87,7 +86,7 @@ function showWeather(response) {
   let minTemperature = Math.round(celsiusTemperature);
 
   let minTemperatureValue = document.querySelector("#min");
-  minTemperatureValue.innerHTML = `${minTemperature}`;
+  minTemperatureValue.innerHTML = `${minTemperature}°C`;
 
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
   document.querySelector("#wind").innerHTML = Math.round(
@@ -123,30 +122,5 @@ dateElement.innerHTML = formatDate(currentTime);
 
 let searchForm = document.querySelector("form");
 searchForm.addEventListener("submit", handleSubmit);
-
-let fahrenheitLink = document.querySelector("#fahrenheit");
-let celsiusLink = document.querySelector("#celsius");
-
-let celsiusTemperature = null;
-
-function showFahrenheitTemperature(event) {
-  event.preventDefault();
-  let temperatureElement = document.querySelector("#min");
-  fahrenheitLink.classList.add("active");
-  celsiusLink.classList.remove("active");
-  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
-  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
-}
-
-function showCelsiusTemperature(event) {
-  event.preventDefault();
-  let temperatureElement = document.querySelector("#min");
-  celsiusLink.classList.add("active");
-  fahrenheitLink.classList.remove("active");
-  temperatureElement.innerHTML = Math.round(celsiusTemperature);
-}
-
-fahrenheitLink.addEventListener("click", showFahrenheitTemperature);
-celsiusLink.addEventListener("click", showCelsiusTemperature);
 
 searchCity("Kyiv");
