@@ -42,6 +42,11 @@ h3 {
   margin: 0px;
   font-size: 25px;
 }
+h2 {
+  text-align: center;
+  font-size: 18px;
+  margin-top: 20px;
+}
 .weather-img {
   display: block;
   margin: 0 auto;
@@ -89,7 +94,39 @@ li.temperature-min {
   text-align: center;
 }
 .weather-description {
-  margin-top: 20px;
+  margin: 20px;
   text-align: center;
   font-size: 18px;
+}
+
+.week-weather {
+  flex-wrap: wrap;
+  display: flex;
+  justify-content: space-around;
+}
+.day {
+  border: 3px solid grey;
+  text-align: center;
+  border-radius: 40px;
+  width: 110px;
+  height: 120px;
+  margin-bottom: 15px;
+  padding-top: 15px;
+  cursor: pointer;
+  transition: 1s;
+}
+.day:hover {
+  transform: scale(1.1);
+}
+.weather-forecast-day {
+  font-size: 16px;
+  opacity: 0.5;
+}
+
+.weather-forecast-temperatures {
+  font-size: 13px;
+  opacity: 0.7;
+}
+.weather-forecast-temperature-min {
+  opacity: 0.5;
 }
